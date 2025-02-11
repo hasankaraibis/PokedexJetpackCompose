@@ -89,7 +89,7 @@ dependencies {
 
     // Coil
     implementation(libs.coil)
-    implementation(libs.accompanist.coil)
+    implementation(libs.coil.compose)
 
     // Dagger Hilt
     implementation(libs.hilt.android)
