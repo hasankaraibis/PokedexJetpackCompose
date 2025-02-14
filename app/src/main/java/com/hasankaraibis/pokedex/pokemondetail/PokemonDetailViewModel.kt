@@ -15,5 +15,4 @@ class PokemonDetailViewModel @Inject constructor(
     suspend fun getPokemonInfo(pokemonName: String): Resource<Pokemon> {
         return repository.getPokemonInfo(pokemonName)
     }
-
 }
