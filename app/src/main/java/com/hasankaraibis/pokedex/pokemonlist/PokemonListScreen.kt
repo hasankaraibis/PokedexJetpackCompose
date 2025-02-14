@@ -30,7 +30,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
@@ -47,10 +46,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.graphics.drawable.toBitmap
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
@@ -152,14 +149,14 @@ fun PokedexEntry(
     )
 
     LaunchedEffect(painter.state) {
-    if (painter.state is AsyncImagePainter.State.Success) {
-        val drawable = (painter.state as AsyncImagePainter.State.Success).result.drawable
+        if (painter.state is AsyncImagePainter.State.Success) {
+            val drawable = (painter.state as AsyncImagePainter.State.Success).result.drawable
 
-        viewModel.calcDominantColor(drawable) { color ->
-            dominantColor = color
+            viewModel.calcDominantColor(drawable) { color ->
+                dominantColor = color
+            }
         }
     }
-}
 
     Box(
         contentAlignment = Center,
