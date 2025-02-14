@@ -7,7 +7,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.palette.graphics.Palette
 import com.hasankaraibis.pokedex.data.models.PokedexListEntry
 import com.hasankaraibis.pokedex.repository.PokemonRepository
@@ -16,7 +15,6 @@ import com.hasankaraibis.pokedex.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.http.Query
 import java.util.Locale
 import javax.inject.Inject
 
@@ -92,6 +90,9 @@ class PokemonListViewModel @Inject constructor(
                 is Resource.Error -> {
                     loadError.value = result.message!!
                     isLoading.value = false
+                }
+                else -> {
+
                 }
             }
         }
