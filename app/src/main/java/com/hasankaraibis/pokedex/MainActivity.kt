@@ -20,9 +20,7 @@ import androidx.navigation.navArgument
 import com.hasankaraibis.pokedex.pokemondetail.PokemonDetailScreen
 import com.hasankaraibis.pokedex.pokemonlist.PokemonListScreen
 import com.hasankaraibis.pokedex.ui.theme.JetpackComposePokedexTheme
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

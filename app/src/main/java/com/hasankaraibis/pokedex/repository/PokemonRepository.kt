@@ -4,11 +4,8 @@ import com.hasankaraibis.pokedex.data.remote.PokeApi
 import com.hasankaraibis.pokedex.data.remote.responses.Pokemon
 import com.hasankaraibis.pokedex.data.remote.responses.PokemonList
 import com.hasankaraibis.pokedex.util.Resource
-import dagger.hilt.android.scopes.ActivityScoped
-import javax.inject.Inject
 
-@ActivityScoped
-class PokemonRepository @Inject constructor(
+class PokemonRepository (
     private val api: PokeApi
 ) {
     suspend fun getPokemonList(limit: Int, offset: Int) : Resource<PokemonList> {

@@ -12,14 +12,11 @@ import com.hasankaraibis.pokedex.data.models.PokedexListEntry
 import com.hasankaraibis.pokedex.repository.PokemonRepository
 import com.hasankaraibis.pokedex.util.Constants.PAGE_SIZE
 import com.hasankaraibis.pokedex.util.Resource
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Locale
-import javax.inject.Inject
 
-@HiltViewModel
-class PokemonListViewModel @Inject constructor(
+class PokemonListViewModel (
     private val repository: PokemonRepository
 ) : ViewModel() {
 

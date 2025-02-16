@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.hilt.android)
 }
 
 android {
@@ -91,11 +90,9 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.coil.compose)
 
-    // Dagger Hilt
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.android.compiler)
-    ksp(libs.androidx.hilt.compiler)
-    implementation(libs.androidx.hilt.navigation.compose)
+    //Koin
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
 
     // Android Support
 //    implementation(libs.palette.v7)

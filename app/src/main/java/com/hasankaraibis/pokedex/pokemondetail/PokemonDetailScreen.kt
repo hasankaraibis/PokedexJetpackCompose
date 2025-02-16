@@ -47,7 +47,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -58,6 +57,7 @@ import com.hasankaraibis.pokedex.util.Resource
 import com.hasankaraibis.pokedex.util.parseStatToAbbr
 import com.hasankaraibis.pokedex.util.parseStatToColor
 import com.hasankaraibis.pokedex.util.parseTypeToColor
+import org.koin.androidx.compose.koinViewModel
 import java.util.Locale
 import kotlin.math.round
 
@@ -68,7 +68,7 @@ fun PokemonDetailScreen(
     navController: NavController,
     topPadding: Int,
     pokemonImageSize: Int,
-    viewModel: PokemonDetailViewModel = hiltViewModel()
+    viewModel: PokemonDetailViewModel = koinViewModel()
 ) {
     val pokemonInfo = produceState<Resource<Pokemon>>(initialValue = Resource.Loading()) {
         value = viewModel.getPokemonInfo(pokemonName)

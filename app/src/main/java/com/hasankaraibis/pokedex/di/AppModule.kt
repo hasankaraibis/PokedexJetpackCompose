@@ -1,33 +1,27 @@
 package com.hasankaraibis.pokedex.di
 
 import com.hasankaraibis.pokedex.data.remote.PokeApi
+import com.hasankaraibis.pokedex.pokemondetail.PokemonDetailViewModel
+import com.hasankaraibis.pokedex.pokemonlist.PokemonListViewModel
 import com.hasankaraibis.pokedex.repository.PokemonRepository
 import com.hasankaraibis.pokedex.util.Constants.BASE_URL
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import org.koin.core.module.dsl.viewModel
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
-@Module
-@InstallIn(SingletonComponent::class)
-object AppModule {
+val appModule = module {
+    single { providePokeApi() }
+    single { PokemonRepository(get()) }
 
-    @Singleton
-    @Provides
-    fun providePokemonRepository (
-        api: PokeApi
-    ) = PokemonRepository(api)
+    viewModel { PokemonDetailViewModel(get()) }
+    viewModel { PokemonListViewModel(get()) }
+}
 
-    @Singleton
-    @Provides
-    fun providePokeApi() : PokeApi {
-        return Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
-            .build()
-            .create(PokeApi::class.java)
-    }
+fun providePokeApi(): PokeApi {
+    return Retrofit.Builder()
+        .addConverterFactory(GsonConverterFactory.create())
+        .baseUrl(BASE_URL)
+        .build()
+        .create(PokeApi::class.java)
 }
