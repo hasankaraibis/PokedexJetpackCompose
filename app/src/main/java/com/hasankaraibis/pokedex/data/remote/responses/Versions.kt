@@ -1,12 +1,16 @@
 package com.hasankaraibis.pokedex.data.remote.responses
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Versions(
-    val generation_i: GenerationI,
-    val generation_ii: GenerationIi,
-    val generation_iii: GenerationIii,
-    val generation_iv: GenerationIv,
-    val generation_v: GenerationV,
-    val generation_vi: GenerationVi,
-    val generation_vii: GenerationVii,
-    val generation_viii: GenerationViii
+    @SerialName("generation-i") val generation_i: GenerationI,
+    @SerialName("generation-ii") val generation_ii: GenerationIi,
+    @SerialName("generation-iii") val generation_iii: GenerationIii,
+    @SerialName("generation-iv") val generation_iv: GenerationIv,
+    @SerialName("generation-v") val generation_v: GenerationV,
+    @SerialName("generation-vi") val generation_vi: GenerationVi,
+    @SerialName("generation-vii") val generation_vii: GenerationVii,
+    @SerialName("generation-viii") val generation_viii: GenerationViii
 )
