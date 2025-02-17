@@ -14,6 +14,7 @@ import com.hasankaraibis.pokedex.util.Constants.PAGE_SIZE
 import com.hasankaraibis.pokedex.util.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.util.Locale
 
 class PokemonListViewModel (
@@ -85,7 +86,8 @@ class PokemonListViewModel (
 
                 }
                 is Resource.Error -> {
-                    loadError.value = result.message!!
+                    Timber.e(result.message!!)
+                    loadError.value = result.message
                     isLoading.value = false
                 }
                 else -> {

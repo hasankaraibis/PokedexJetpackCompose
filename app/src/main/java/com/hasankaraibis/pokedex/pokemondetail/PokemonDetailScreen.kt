@@ -58,6 +58,7 @@ import com.hasankaraibis.pokedex.util.parseStatToAbbr
 import com.hasankaraibis.pokedex.util.parseStatToColor
 import com.hasankaraibis.pokedex.util.parseTypeToColor
 import org.koin.androidx.compose.koinViewModel
+import timber.log.Timber
 import java.util.Locale
 import kotlin.math.round
 
@@ -185,8 +186,9 @@ fun PokemonDetailStateWrapper(
             )
         }
         is Resource.Error -> {
+            Timber.e(pokemonInfo.message!!)
             Text(
-                text = pokemonInfo.message!!,
+                text = pokemonInfo.message,
                 color = Color.Red,
                 modifier = modifier
             )

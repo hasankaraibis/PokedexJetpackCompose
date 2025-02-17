@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.compose.compiler)
+    kotlin("plugin.serialization") version "1.9.0"
 }
 
 android {
@@ -77,12 +79,6 @@ dependencies {
     implementation(libs.androidx.navigation)
     implementation(libs.androidx.constraintlayout)
 
-    //Retrofit
-    implementation(libs.com.squareup.retrofit2)
-    implementation(libs.com.squareup.retrofit2.converter.gson)
-    implementation(libs.com.squareup.okhttp3)
-    implementation(libs.com.squareup.okhttp3.interceptor)
-
     // Timber
     implementation(libs.timber)
 
@@ -94,6 +90,13 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
 
-    // Android Support
-//    implementation(libs.palette.v7)
+    //Ktor
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.client.serialization)
+    implementation(libs.ktor.client.logging)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.kotlinx.serialization.json)
+
 }
